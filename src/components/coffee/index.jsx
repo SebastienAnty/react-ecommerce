@@ -16,8 +16,8 @@ function Coffee() {
     return (
     <>
         <h1>Coffee</h1>
-        <button onClick={() => setTemperature('hot')}>HOT</button>&nbsp;
-        <button onClick={() => setTemperature('iced')}>ICED</button>
+        <button className={(temperature === 'hot') ? 'active' : ''} onClick={() => setTemperature('hot')}>HOT</button>&nbsp;
+        <button className={(temperature === 'hot') ? 'active' : ''} onClick={() => setTemperature('iced')}>ICED</button>
         {!coffeeList
             ? <h2>Loading...</h2>
             : coffeeList.map(item => {
