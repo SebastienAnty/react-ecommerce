@@ -13,6 +13,21 @@
   }
 }
 
+button {
+  background-color: #ff216e;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  margin-left: 1em;
+  transition: 0.3s;
+}
+
+button.active {
+  background-color: white;
+  color: #ff216e;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
