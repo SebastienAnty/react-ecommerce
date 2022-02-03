@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { initializeApp } from "firebase/app"
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { AuthContext } from "../../App";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAz2HnUlngACkFZ5XlF0zY58BH6hDH_Fqs",
@@ -13,6 +14,7 @@ const firebaseConfig = {
 };
 
 export default function Login() {
+    const { setUser } = useContext(AuthContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     let history = useHistory()
@@ -33,6 +35,7 @@ export default function Login() {
     const didLogin = (user) => {
         localStorage.setItem('userID', user.uid)
         localStorage.setItem('user', JSON.stringify(user))
+        setUser(user)
         history.push('/add')
     }
     return (
